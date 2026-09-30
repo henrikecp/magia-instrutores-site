@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Como não deixar o carro morrer na saída | Magia em Movimento</title>
+
+<meta name="description" content="Entenda de forma simples como controlar embreagem e acelerador para evitar que o carro morra na saída.">
+
+<style>
+:root{
+--purple:#160827;
+--purple2:#2b0d45;
+--gold:#e7bd54;
+--gold2:#ffd86e;
+--white:#fff;
+--muted:#ddd4e6;
+--card:#241137;
+--line:rgba(231,189,84,.42);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:var(--purple);
+color:#fff;
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.wrap{
+max-width:1050px;
+margin:auto;
+padding:0 24px;
+}
+
+/* NAV */
+
+.nav{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(15,5,27,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--line);
+}
+
+.navin{
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+height:55px;
+width:auto;
+}
+
+.links{
+display:flex;
+gap:20px;
+font-size:13px;
+color:#eee;
+}
+
+.links a:hover{
+color:var(--gold2);
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+border-radius:999px;
+padding:13px 20px;
+font-weight:800;
+font-size:14px;
+border:1px solid var(--gold);
+background:linear-gradient(135deg,var(--gold2),var(--gold));
+color:#180a23;
+box-shadow:0 10px 28px rgba(0,0,0,.25);
+}
+
+.btn.ghost{
+background:transparent;
+color:#fff;
+box-shadow:none;
+}
+
+/* ARTICLE HEADER */
+
+.article-header{
+padding:75px 0 55px;
+background:
+linear-gradient(135deg,rgba(22,8,39,.97),rgba(53,17,72,.88));
+border-bottom:1px solid var(--line);
+}
+
+.kicker{
+color:var(--gold2);
+text-transform:uppercase;
+font-weight:900;
+letter-spacing:2px;
+font-size:12px;
+}
+
+.article-header h1{
+font-size:clamp(38px,6vw,68px);
+line-height:1.02;
+letter-spacing:-2px;
+margin:12px 0 20px;
+max-width:900px;
+}
+
+.subtitle{
+color:var(--muted);
+font-size:19px;
+max-width:760px;
+}
+
+.article-meta{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+margin-top:25px;
+color:#bdb3c8;
+font-size:12px;
+}
+
+/* COVER */
+
+.cover{
+padding:35px 0 10px;
+}
+
+.cover img{
+width:100%;
+height:480px;
+object-fit:cover;
+border-radius:24px;
+border:1px solid var(--line);
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+/* CONTENT */
+
+.article-content{
+max-width:800px;
+margin:auto;
+padding:55px 0 20px;
+}
+
+.article-content p{
+font-size:17px;
+color:#eee;
+margin:0 0 24px;
+}
+
+.article-content h2{
+font-size:31px;
+line-height:1.15;
+margin:48px 0 17px;
+color:var(--gold2);
+}
+
+.article-content h3{
+font-size:22px;
+margin:35px 0 12px;
+}
+
+.article-content ul{
+color:var(--muted);
+padding-left:25px;
+}
+
+.article-content li{
+margin-bottom:9px;
+}
+
+.highlight{
+background:linear-gradient(135deg,#351148,#241137);
+border:1px solid var(--line);
+border-radius:18px;
+padding:24px;
+margin:32px 0;
+}
+
+.highlight strong{
+color:var(--gold2);
+}
+
+/* SHARE / LIKE */
+
+.article-actions{
+max-width:800px;
+margin:40px auto;
+padding:30px 0;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+text-align:center;
+}
+
+.article-actions h3{
+margin:0 0 7px;
+font-size:22px;
+}
+
+.article-actions p{
+color:var(--muted);
+font-size:14px;
+}
+
+.like-btn{
+border:1px solid var(--gold);
+background:rgba(255,255,255,.05);
+color:#fff;
+border-radius:999px;
+padding:13px 24px;
+font-size:15px;
+font-weight:800;
+cursor:pointer;
+transition:.2s;
+}
+
+.like-btn:hover{
+background:var(--gold);
+color:#180a23;
+}
+
+.like-btn.liked{
+background:var(--gold);
+color:#180a23;
+}
+
+.like-count{
+margin-top:10px;
+font-size:12px;
+color:#bdb3c8;
+}
+
+/* COMMENTS */
+
+.comments{
+max-width:800px;
+margin:0 auto;
+padding:35px 0 70px;
+}
+
+.comments h2{
+font-size:31px;
+margin:0 0 8px;
+}
+
+.comments-intro{
+color:var(--muted);
+font-size:14px;
+margin-bottom:28px;
+}
+
+.comment-form{
+background:linear-gradient(180deg,#241137,#1b0b2a);
+border:1px solid var(--line);
+border-radius:20px;
+padding:25px;
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.field{
+margin-bottom:16px;
+}
+
+.field label{
+display:block;
+font-size:12px;
+font-weight:800;
+margin-bottom:7px;
+color:var(--gold2);
+}
+
+.field input,
+.field textarea{
+width:100%;
+border:1px solid rgba(231,189,84,.35);
+border-radius:10px;
+background:#10051c;
+color:#fff;
+padding:12px;
+font-family:Arial,Helvetica,sans-serif;
+font-size:14px;
+outline:none;
+}
+
+.field textarea{
+min-height:130px;
+resize:vertical;
+}
+
+.field input:focus,
+.field textarea:focus{
+border-color:var(--gold2);
+}
+
+.comment-notice{
+font-size:11px;
+color:#a99db2;
+margin:8px 0 18px;
+}
+
+.comments-list{
+margin-top:35px;
+display:grid;
+gap:12px;
+}
+
+.comment{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:15px;
+padding:18px;
+}
+
+.comment-top{
+display:flex;
+justify-content:space-between;
+gap:15px;
+margin-bottom:8px;
+}
+
+.comment-name{
+font-weight:900;
+}
+
+.comment-city{
+color:var(--gold2);
+font-size:12px;
+}
+
+.comment-text{
+color:var(--muted);
+font-size:14px;
+margin:0;
+}
+
+/* RELATED */
+
+.related{
+background:#10051c;
+border-top:1px solid var(--line);
+padding:60px 0;
+}
+
+.related h2{
+font-size:34px;
+margin:0 0 25px;
+}
+
+.related-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.related-card{
+background:linear-gradient(180deg,#241137,#160827);
+border:1px solid var(--line);
+border-radius:17px;
+padding:20px;
+}
+
+.related-card:hover{
+border-color:var(--gold2);
+}
+
+.related-card .tag{
+color:var(--gold2);
+font-size:10px;
+font-weight:900;
+letter-spacing:1.5px;
+}
+
+.related-card h3{
+font-size:18px;
+line-height:1.2;
+margin:7px 0;
+}
+
+.related-card p{
+color:var(--muted);
+font-size:13px;
+}
+
+/* CTA */
+
+.cta{
+padding:65px 0;
+background:linear-gradient(100deg,#260b3e,#10051c);
+border-top:1px solid var(--line);
+}
+
+.cta-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+}
+
+.cta h2{
+font-size:36px;
+line-height:1.1;
+margin:5px 0 10px;
+}
+
+.cta p{
+color:var(--muted);
+max-width:650px;
+}
+
+/* FOOTER */
+
+footer{
+padding:35px 0;
+background:#09040e;
+border-top:1px solid var(--line);
+color:#bdb3c8;
+}
+
+.footerin{
+display:flex;
+justify-content:space-between;
+gap:20px;
+align-items:center;
+}
+
+.small{
+font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.links{
+display:none;
+}
+
+.related-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.cta-inner{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}
+
+@media(max-width:560px){
+
+.wrap{
+padding:0 17px;
+}
+
+.navin{
+height:68px;
+}
+
+.logo{
+height:48px;
+}
+
+.article-header{
+padding:55px 0 40px;
+}
+
+.article-header h1{
+font-size:43px;
+}
+
+.subtitle{
+font-size:17px;
+}
+
+.cover img{
+height:300px;
+border-radius:18px;
+}
+
+.article-content{
+padding-top:40px;
+}
+
+.article-content p{
+font-size:16px;
+}
+
+.article-content h2{
+font-size:27px;
+}
+
+.form-row{
+grid-template-columns:1fr;
+gap:0;
+}
+
+.related-grid{
+grid-template-columns:1fr;
+}
+
+.cta h2{
+font-size:30px;
+}
+
+.footerin{
+flex-direction:column;
+text-align:center;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+
+<div class="wrap navin">
+
+<a href="../../index.html">
+<img class="logo"
+src="../../assets/logo.png"
+alt="Magia Instrutores Autônomos">
+</a>
+
+<nav class="links">
+<a href="../../index.html#servicos">Serviços</a>
+<a href="../../index.html#magia">Sobre a Magia</a>
+<a href="../../index.html#diferenciais">Diferenciais</a>
+<a href="../../index.html#aprovados">Aprovados</a>
+<a href="../../index.html#depoimentos">Avaliações</a>
+<a href="../">Magia em Movimento</a>
+<a href="../../index.html#faq">FAQ</a>
+<a href="../../index.html#contato">Contato</a>
+</nav>
+
+<a class="btn" href="https://wa.me/5548985005088">
+Fale com a Magia
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+<!-- CABEÇALHO DA MATÉRIA -->
+
+<section class="article-header">
+
+<div class="wrap">
+
+<div class="kicker">Carros • Direção</div>
+
+<h1>
+Como não deixar o carro morrer na saída
+</h1>
+
+<p class="subtitle">
+Entenda de forma simples como trabalhar embreagem e acelerador
+para fazer uma saída mais suave e sem aquele famoso "apagão" do motor.
+</p>
+
+<div class="article-meta">
+
+<span>📅 30 de setembro de 2026</span>
+<span>⏱️ 4 min de leitura</span>
+<span>🚗 Carros</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- IMAGEM -->
+
+<section class="cover">
+
+<div class="wrap">
+
+<img
+src="../../assets/je-henrike-1.jpeg"
+alt="Aula de direção da Magia Instrutores"
+>
+
+</div>
+
+</section>
+
+
+<!-- TEXTO -->
+
+<article class="article-content">
+
+<p>
+Se existe uma cena capaz de fazer quem está aprendendo a dirigir
+sentir que todo mundo na rua está olhando, é aquela em que o carro
+simplesmente... morre.
+</p>
+
+<p>
+Você solta a embreagem, o carro dá aquela tremidinha e pronto:
+silêncio. O motor apagou.
+</p>
+
+<p>
+A boa notícia é que isso não significa que você não sabe dirigir.
+Na maioria das vezes, é apenas uma questão de entender a relação
+entre embreagem e acelerador.
+</p>
+
+
+<h2>Primeiro: o que está acontecendo?</h2>
+
+<p>
+O motor precisa continuar funcionando enquanto você começa a
+transferir força para as rodas. A embreagem é justamente o componente
+que permite fazer essa transferência de maneira gradual.
+</p>
+
+<div class="highlight">
+
+<strong>Uma ideia importante:</strong><br>
+
+O objetivo não é simplesmente "soltar a embreagem".
+O objetivo é encontrar o momento em que o carro começa a querer andar
+e, a partir daí, continuar fazendo a transferência de força de maneira
+progressiva.
+
+</div>
+
+
+<h2>O famoso ponto de embreagem</h2>
+
+<p>
+Quando você começa a soltar lentamente o pedal da embreagem,
+chega um momento em que o carro começa a reagir.
+</p>
+
+<p>
+É possível perceber pequenas mudanças no som do motor,
+uma leve movimentação da carroceria ou até aquela sensação de que
+o carro quer começar a andar.
+</p>
+
+<p>
+Esse é o chamado ponto de embreagem.
+</p>
+
+
+<h2>E onde entra o acelerador?</h2>
+
+<p>
+Depois de perceber o ponto de embreagem, o acelerador entra para
+ajudar o motor a manter força suficiente para colocar o veículo
+em movimento.
+</p>
+
+<p>
+O segredo está na delicadeza. Não é necessário acelerar como se
+estivesse largando em uma corrida.
+</p>
+
+
+<h3>Uma saída tranquila envolve:</h3>
+
+<ul>
+<li>soltar a embreagem progressivamente;</li>
+<li>perceber o momento em que o carro começa a reagir;</li>
+<li>acelerar de maneira suave;</li>
+<li>continuar soltando a embreagem gradualmente;</li>
+<li>evitar movimentos bruscos.</li>
+</ul>
+
+
+<h2>Por que o carro morre?</h2>
+
+<p>
+Quando a embreagem é liberada muito rapidamente, o motor pode não
+conseguir manter o funcionamento diante da carga que está sendo
+aplicada.
+</p>
+
+<p>
+É aí que acontece o famoso "morreu".
+</p>
+
+<div class="highlight">
+
+<strong>Dica da Magia:</strong><br>
+
+Em vez de tentar decorar exatamente quanto tempo deve levar para
+soltar a embreagem, aprenda a perceber o comportamento do carro.
+Cada veículo possui características próprias.
+
+</div>
+
+
+<h2>Treinar faz diferença</h2>
+
+<p>
+A coordenação entre os pés não aparece magicamente na primeira aula.
+Ela é construída através da repetição.
+</p>
+
+<p>
+Quanto mais você entende o que está acontecendo, menos precisa
+pensar conscientemente em cada movimento.
+</p>
+
+<p>
+Com o tempo, aquilo que parecia uma sequência complicada passa
+a acontecer naturalmente.
+</p>
+
+<p>
+E é justamente aí que dirigir começa a ficar mais leve.
+</p>
+
+</article>
+
+
+<!-- CURTIDA -->
+
+<section class="article-actions">
+
+<div class="wrap">
+
+<h3>Gostou da matéria?</h3>
+
+<p>
+Deixe seu ❤️ e conte para a gente o que achou.
+</p>
+
+<button class="like-btn" id="likeButton" type="button">
+♡ Gostei desta matéria
+</button>
+
+<div class="like-count" id="likeCount">
+0 pessoas curtiram esta matéria
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COMENTÁRIOS -->
+
+<section class="comments" id="comentarios">
+
+<h2>
+💬 O que você achou?
+</h2>
+
+<p class="comments-intro">
+Compartilhe sua experiência. É rapidinho.
+</p>
+
+
+<div class="comment-form">
+
+<div class="form-row">
+
+<div class="field">
+
+<label for="nome">NOME *</label>
+
+<input
+id="nome"
+type="text"
+placeholder="Seu nome"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="cidade">CIDADE *</label>
+
+<input
+id="cidade"
+type="text"
+placeholder="Sua cidade"
+required
+>
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label for="comentario">SEU COMENTÁRIO *</label>
+
+<textarea
+id="comentario"
+placeholder="Escreva o que você achou da matéria..."
+required
+></textarea>
+
+</div>
+
+
+<p class="comment-notice">
+Seu comentário será enviado para aprovação antes de aparecer publicamente.
+</p>
+
+
+<button
+class="btn"
+type="button"
+onclick="enviarComentario()"
+>
+Enviar comentário
+</button>
+
+</div>
+
+
+<div class="comments-list" id="commentsList">
+
+<div class="comment">
+
+<div class="comment-top">
+
+<div class="comment-name">
+Mariana
+</div>
+
+<div class="comment-city">
+Florianópolis
+</div>
+
+</div>
+
+<p class="comment-text">
+Exemplo de como os comentários aparecerão aqui depois que forem aprovados.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RELACIONADOS -->
+
+<section class="related">
+
+<div class="wrap">
+
+<h2>
+Você também pode gostar
+</h2>
+
+
+<div class="related-grid">
+
+
+<a class="related-card" href="#">
+<span class="tag">CNH</span>
+
+<h3>
+O que realmente vale a pena treinar antes da prova prática?
+</h3>
+
+<p>
+Alguns exercícios fazem muito mais sentido quando você entende
+o motivo de estar praticando cada um deles.
+</p>
+
+</a>
+
+
+<a class="related-card" href="#">
+<span class="tag">MOTOS</span>
+
+<h3>
+Moto baixa: por que a altura faz tanta diferença?
+</h3>
+
+<p>
+Entenda como a altura da motocicleta pode influenciar confiança
+e segurança durante a aprendizagem.
+</p>
+
+</a>
+
+
+<a class="related-card" href="#">
+<span class="tag">COMPORTAMENTO</span>
+
+<h3>
+Por que algumas pessoas têm medo de dirigir?
+</h3>
+
+<p>
+Ter habilitação e sentir segurança ao volante são coisas diferentes.
+</p>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="wrap cta-inner">
+
+<div>
+
+<div class="kicker">Quer aprender no seu ritmo?</div>
+
+<h2>
+Conheça a Magia.
+</h2>
+
+<p>
+Aulas individuais para primeira habilitação,
+aperfeiçoamento e retomada da confiança para dirigir.
+</p>
+
+</div>
+
+
+<div>
+
+<a class="btn"
+href="https://wa.me/5548985005088">
+💬 Falar com a Magia
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="wrap footerin">
+
+<img
+class="logo"
+src="../../assets/logo.png"
+alt="Magia Instrutores Autônomos"
+>
+
+<div class="small">
+Florianópolis • São José • Palhoça • Biguaçu<br>
+Categoria A • Categoria B<br>
+© 2026 Magia Instrutores Autônomos
+</div>
+
+<div class="small">
+WhatsApp: (48) 98500-5088<br>
+Instagram: @magiainstrutores
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* CURTIDA */
+
+let liked = false;
+let likes = 0;
+
+const likeButton = document.getElementById("likeButton");
+const likeCount = document.getElementById("likeCount");
+
+likeButton.addEventListener("click", function(){
+
+if(!liked){
+
+liked = true;
+likes++;
+
+likeButton.classList.add("liked");
+likeButton.innerHTML = "♥ Gostei desta matéria";
+
+}else{
+
+liked = false;
+likes--;
+
+likeButton.classList.remove("liked");
+likeButton.innerHTML = "♡ Gostei desta matéria";
+
+}
+
+if(likes === 1){
+
+likeCount.innerText =
+"1 pessoa curtiu esta matéria";
+
+}else{
+
+likeCount.innerText =
+likes + " pessoas curtiram esta matéria";
+
+}
+
+});
+
+
+/* COMENTÁRIO */
+
+function enviarComentario(){
+
+const nome =
+document.getElementById("nome").value.trim();
+
+const cidade =
+document.getElementById("cidade").value.trim();
+
+const comentario =
+document.getElementById("comentario").value.trim();
+
+
+if(!nome || !cidade || !comentario){
+
+alert("Preencha seu nome, sua cidade e o comentário.");
+
+return;
+
+}
+
+
+alert(
+"Obrigado, " +
+nome +
+"! Seu comentário foi enviado para aprovação."
+);
+
+
+/*
+IMPORTANTE:
+
+Neste momento o comentário NÃO é salvo
+em um banco de dados.
+
+Aqui ficará posteriormente a integração
+com o sistema definitivo de comentários.
+*/
+
+document.getElementById("nome").value="";
+document.getElementById("cidade").value="";
+document.getElementById("comentario").value="";
+
+}
+
+</script>
+
+</body>
+</html>
